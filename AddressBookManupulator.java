@@ -1,10 +1,17 @@
 package day11;
 
+import java.io.ObjectInputStream.GetField;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddressBookManupulator {
 	
@@ -315,5 +322,14 @@ public class AddressBookManupulator {
 				.filter(map -> map.getState().contains(countStateContacts))
 				.collect(Collectors.counting());
 		return count;
+	}
+
+	public void sortByName() { //Sorts Alphabetically by first Name
+		
+		List<DetailsCollector> sortedList = contacts.values()
+											.stream()
+											.sorted(Comparator.comparing(DetailsCollector::getFirstName))
+											.collect(Collectors.toList());
+		System.out.println(sortedList);
 	}
 }

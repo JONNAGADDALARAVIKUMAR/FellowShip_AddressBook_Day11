@@ -21,10 +21,11 @@ public class AddressBookMainClass
 		
 	       
 	    while (true) {
-	        System.out.println( "1: for family \n" +
-	        					"2: for friend \n" +
-	                    		"3: To Search\n" +
-	        					"4: Exit");
+	        System.out.println("\n1: for family \n" +
+	        					 "2: for friend \n" +
+	                    		 "3: To Search\n" +
+	        					 "4: TO Sort\n" +
+	        					 "5: To Terminate");
 	        int selectedOption = scan.nextInt();
 	            
 	        switch (selectedOption) {
@@ -40,10 +41,13 @@ public class AddressBookMainClass
 	        	search();
 	        	break;
 	        case 4:
+	        	sort();
+	        	break;
+	        case 5:
 	        	System.out.println("\n\tTerminated");
 	        	break;
 	        } 
-	        if(selectedOption == 4)
+	        if(selectedOption == 5)
 	        	break;
 	    }
 	}
@@ -86,5 +90,11 @@ public class AddressBookMainClass
 		    	System.out.println("\nInvalid Entry\n");
 		    	break;
 		}		
+	}
+	private static void sort() { //Sorts Alphabetically by First Name
+		
+		System.out.println("\nSorted List of Contacts Alphabetically by Name :\n");
+		familyAddressBook.sortByName();
+		friendsAddressBook.sortByName();
 	}
 }
