@@ -55,7 +55,7 @@ public class AddressBookManupulator {
 					break;
 			}
 		}
-		System.out.println("\n\tProgram Terminated");
+		System.out.println("\n\tAddress Book Updated");
 		choice = 1;
 		return contacts;
 	}
@@ -298,5 +298,22 @@ public class AddressBookManupulator {
 				.collect(Collectors.toMap(map -> map.getEmailId()+" ", map -> " "+map.getFirstName()+" "+map.getLastName()+", State : "+map.getState()));
 
 		System.out.println(personInState);
+	}
+
+	public Long countByCity(String countCityContacts) { // Counts no of Contacts in City
+		Long count = contacts.values()
+				.stream()
+				.filter(map -> map.getCity().contains(countCityContacts))
+				.collect(Collectors.counting());
+		return count;
+	}
+
+	public Long countByState(String countStateContacts) { // Counts no of Contacts in State
+		
+		Long count = contacts.values()
+				.stream()
+				.filter(map -> map.getState().contains(countStateContacts))
+				.collect(Collectors.counting());
+		return count;
 	}
 }

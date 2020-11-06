@@ -50,23 +50,37 @@ public class AddressBookMainClass
 
 	private static void search() {
 		
-		 System.out.println("\n1.Search by City\n2.Search by State");
+		 System.out.println("\n1.Search by City\n2.Search by State\n3.Count by City\n4.Count by State");
 		 int search = scan.nextInt();
 		 switch (search) {
 		 
 		    case 1:
 		    	System.out.print("Enter City : ");
 		    	String city = scan.next();
-		    	System.out.println("COntacts in "+city+" are");
+		    	System.out.println("Contacts in "+city+" are");
 		    	familyAddressBook.searchByCity(city);
 		    	friendsAddressBook.searchByCity(city);
 		    	break;
 		    case 2:
 		    	System.out.print("Enter State : ");
 		    	String state = scan.next();
-		    	System.out.println("COntacts in "+state+" are");
+		    	System.out.println("Contacts in "+state+" are");
 		    	familyAddressBook.searchByState(state);
 		    	friendsAddressBook.searchByState(state);
+		    	break;
+		    case 3:
+		    	System.out.print("Enter City : ");
+		    	String CityToCountContacts = scan.next();
+		    	Long noOfFamilyContactsInCity = familyAddressBook.countByCity(CityToCountContacts);
+		    	Long noOfFriendsContactsInCity = friendsAddressBook.countByCity(CityToCountContacts);
+		    	System.out.println("\nNo of Contacts in "+CityToCountContacts+" are "+(noOfFamilyContactsInCity+noOfFriendsContactsInCity));
+		    	break;
+		    case 4:
+		    	System.out.print("Enter State : ");
+		    	String StateToCountContacts = scan.next();
+		    	Long noOfFamilyContactsInState = familyAddressBook.countByState(StateToCountContacts);
+		    	Long noOfFriendsContactsIntate = friendsAddressBook.countByState(StateToCountContacts);
+		    	System.out.println("\nNo of Contacts in "+StateToCountContacts+" are "+(noOfFamilyContactsInState+noOfFriendsContactsIntate));
 		    	break;
 		    default:
 		    	System.out.println("\nInvalid Entry\n");
