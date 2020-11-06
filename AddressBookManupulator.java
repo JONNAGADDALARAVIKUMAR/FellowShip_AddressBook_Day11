@@ -1,6 +1,7 @@
 package day11;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -281,17 +282,21 @@ public class AddressBookManupulator {
 	// STREEM API Day 11
 	public void searchByCity(String city) {//Search by City
  
-		System.out.println(contacts.values()
-									.stream()
-									.filter(map -> map.getCity().contains(city))
-									.collect(Collectors.toSet()));
+		Map<String, String> personInCity = contacts.values()//Dictionary of Person And City
+												.stream()
+												.filter(map -> map.getCity().contains(city))
+												.collect(Collectors.toMap(map -> map.getEmailId()+" ", map -> " "+map.getFirstName()+" "+map.getLastName()+", City : "+map.getCity()));
+		
+			System.out.println(personInCity);
 		}
 	
 	public void searchByState(String state) { //Search by State
 	
-		System.out.println(contacts.values()
-									.stream()
-									.filter(map -> map.getState().contains(state))
-									.collect(Collectors.toSet()));
+		Map<String, String> personInState = contacts.values()//Dictionary of Person And State
+				.stream()
+				.filter(map -> map.getState().contains(state))
+				.collect(Collectors.toMap(map -> map.getEmailId()+" ", map -> " "+map.getFirstName()+" "+map.getLastName()+", State : "+map.getState()));
+
+		System.out.println(personInState);
 	}
 }

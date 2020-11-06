@@ -3,7 +3,8 @@ package day11;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class AddressBookMainClass {
+public class AddressBookMainClass 
+{
 	static AddressBookManupulator familyAddressBook = new AddressBookManupulator();//family Address Book
 	static AddressBookManupulator friendsAddressBook = new AddressBookManupulator();//Friends Address Book
 	static Scanner scan = new Scanner(System.in);
