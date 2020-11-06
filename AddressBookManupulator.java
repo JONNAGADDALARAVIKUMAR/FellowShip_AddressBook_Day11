@@ -324,12 +324,37 @@ public class AddressBookManupulator {
 		return count;
 	}
 
-	public void sortByName() { //Sorts Alphabetically by first Name
+	public void sortByName() { //Sorts Alphabetically by First Name
 		
 		List<DetailsCollector> sortedList = contacts.values()
 											.stream()
 											.sorted(Comparator.comparing(DetailsCollector::getFirstName))
 											.collect(Collectors.toList());
 		System.out.println(sortedList);
+	}
+
+	public void sortByCity() { //Sorts Alphabetically by City
+		List<DetailsCollector> sortedList = contacts.values()
+											.stream()
+											.sorted(Comparator.comparing(DetailsCollector::getCity))
+											.collect(Collectors.toList());
+		System.out.println(sortedList);	
+	}
+
+	public void sortByState() { //Sorts Alphabetically by State
+		List<DetailsCollector> sortedList = contacts.values()
+											.stream()
+											.sorted(Comparator.comparing(DetailsCollector::getState))
+											.collect(Collectors.toList());
+		System.out.println(sortedList);	
+		
+	}
+
+	public void sortByZip() { //Sorts Alphabetically by ZIP
+		List<DetailsCollector> sortedList = contacts.values()
+											.stream()
+											.sorted(Comparator.comparing(DetailsCollector::getZip))
+											.collect(Collectors.toList());
+		System.out.println(sortedList);			
 	}
 }

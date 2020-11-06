@@ -1,7 +1,7 @@
 package day11;
 
-public class DetailsCollector 
-{	
+public class DetailsCollector {
+	
 	private String firstName;
     private String lastName;
     private String address;
